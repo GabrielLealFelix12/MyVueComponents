@@ -10,30 +10,23 @@ computed: {
   }
 
 },methods:{
-   testevue(){
-    return this.valor;
-   }, returnthisvalue(){
-      alert(this.nomeConta)
-   
-   }, async getContas(){
+    async getContas(){
 
       
        const formData = new FormData();
        formData.append("Nome", this.nomeConta);
       
 
-   let x = await fetch('./crud/contas/consultarContas.php', {
+   let x = await fetch('./call/to/api.extension', {
       method: "POST",
       body: formData
    });
    
        let y = await x.json();
-       //let y = await x.text();
        console.log(y);
 
        this.nomeUsuarios = y;
        console.log(this.nomeUsuarios.length);
-       //this.nomeUsuarios_length = this.nomeUsuarios.length;
        
        if(this.nomeUsuarios.length > 10) {
           this.resultsLimit = 10;
@@ -53,40 +46,19 @@ computed: {
    
    },nextPages(){
       this.currentPage += 10
-      //this.resultsLimitPages += 10;
-      //console.log(this.nomeUsuariosLengthArray)
+     
    
    }, backPages(){
       this.currentPage -= 10;
-      //this.currentPage = this.resultsLimitPages
    },  
       askPages(){
          this.offSet = this.nomeUsuariosLengthArray[this.pageAsker - 1].offset;
          this.limitQuerry = this.nomeUsuariosLengthArray[this.pageAsker - 1].lastOf;
-      //async    
-      //let newOffset = this.limitQuerry; 
-      //this.offSet = this.pageAsker + this.limitQuerry; 
-      //this.limitQuerry = this.limitQuerry + this.resultsLimit
-      //console.log('newOffset:' + newOffset)
+      
       console.log('pageAsker:' + this.pageAsker)
-           /*
-           if(this.currentPage > 1){
-               offset = this.resultsLimit
-           } else {
-             offset = 1
-           }
            
-            const formData = new FormData();
-            formData.append("limit", this.resultsLimit);
-            formData.append("offset", offset);
-
-   let request_dados = await fetch('./crud/contas/consultarContas.php', {
-      method: "POST",   
-      body: formData,
-   });
    
        let response_dados = await request_dados.json();
-       //let y = await x.text();
        console.log(response_dados);
 
        this.nomeUsuarios = response_dados;
