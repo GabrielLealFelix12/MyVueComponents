@@ -32,7 +32,7 @@ const componentPacotes = {data () {
      height: 200px; width: 150px; 
      flex-direction: column; justify-content: center; align-items: center;
      cursor: pointer;'> 
-     <img src="vue/Plus_Icon.png" style='height: 100px; width: 100px' alt="Icon">
+     <img src="your/path/to/icon.extension" style='height: 100px; width: 100px' alt="Icon">
        Criar pacote
      </div>
      
@@ -99,7 +99,7 @@ const componentPacotes = {data () {
           <div>
               Adicione uma imagem:
              <label for='mediaForPackag'>
-                <img src="vue/Plus_Icon.png" style='height: 100px; width: 100px' alt="Icon"> 
+                <img src="your/path/to/icon.extension" style='height: 100px; width: 100px' alt="Icon"> 
              </label>
              <input style='display: none' type="file" id="mediaForPackag" accept="image/png, image/jpeg">
           </div>
