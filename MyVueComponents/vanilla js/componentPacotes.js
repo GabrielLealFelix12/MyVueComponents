@@ -32,7 +32,7 @@ const componentPacotes = {data () {
      height: 200px; width: 150px; 
      flex-direction: column; justify-content: center; align-items: center;
      cursor: pointer;'> 
-     <img src="your/path/to/icon.extension" style='height: 100px; width: 100px' alt="Icon">
+     <img src="vue/Plus_Icon.png" style='height: 100px; width: 100px' alt="Icon">
        Criar pacote
      </div>
      
@@ -74,37 +74,45 @@ const componentPacotes = {data () {
   min-width: 300px;
   min-height: 450px;'>
            
-          <div style='display: flex; flex-direction: row; margin-top: 10px'>
-          <label for='nomePacote'> Pacote: </label>
-          <input type="text" id='nomePacote'>
+          <div style='display: flex; flex-direction: row; margin-top: 10px; margin-left: 10px'>
+          <label style='margin-right: 10px' for='nomePacote'> Pacote: </label>
+          <input style='min-width: 75%;' type="text" id='nomePacote'>
           </div>
-          
-          
-          <div style='margin-top: 10px'>
-          <label style='margin-right: 5px' for="escolherServicos"> Serviços disponíveis: </label>
-          <select id='escolherServicos'>
-            <option value='servico'> Servico </option>
+
+
+          <div style='margin-top: 10px; margin-left: 10px'>
+          <label style='margin-right: 5px' for="escolherBarco"> Barcos disponíveis: </label>
+          <select id='escolherBarco'>
+            <option value='barco'> Barco </option>
           </select>        
           </div>
           
-          <div>
-           <h4>  Serviços escolhidos: </h4>
+          
+          <div style='margin-top: 10px; margin-left: 10px'>
+          <h4 style='margin-top: 5px; margin-bottom: 5px;' > Serviços disponíveis: </h4>
+          <input type="checkbox" id='escolherServicos' value='value'>        
+          <label style='margin-right: 5px' for="escolherServicos"> Serviços </label>
           </div>
+          
 
-          <div>
-            <label for="qtdAssentos"> Quantidade de Assentos:</label>
+          <div style='margin-left: 10px; margin-top: 10px'>
+            <label style='margin-right: 10px' for="qtdAssentos" > Quantidade de Assentos:</label>
             <input type="number" id="qtdAssentos" min="1" max="100">
           </div>
 
-          <div>
-              Adicione uma imagem:
+          <div style='margin-left: 10px'>
+              <h4> Adicione uma imagem: </h4>
              <label for='mediaForPackag'>
-                <img src="your/path/to/icon.extension" style='height: 100px; width: 100px' alt="Icon"> 
+                <img src="vue/Plus_Icon.png" style='height: 50px; width: 50px' alt="Icon"> 
              </label>
              <input style='display: none' type="file" id="mediaForPackag" accept="image/png, image/jpeg">
           </div>
           
-          <div>
+          <div style='min-height:35%; min-width: 90%; margin-left: 10px'>
+             <h4> Pré-visualização: </h4>
+          </div>
+          
+          <div style='display: flex; justify-content: center;'>
              <button> Adicionar pacote </button>
              <button @click='divShowHide'> Cancelar </button>
           </div>
