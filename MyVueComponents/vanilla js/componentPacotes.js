@@ -1,6 +1,16 @@
 const componentPacotes = {data () {
-    return {valor: `valor`, showDiv: false, divDisplay: 'none'}
-  }, methods: {
+    return {valor: `valor`, showDiv: false, divDisplay: 'none', arrayServicos:[]}
+  }, 
+  async beforeMount(){
+    let servicosReq = await fetch('./path/to/api/endpoint/.extension', {
+      method: "GET"
+   });
+   
+       let servicosResponse = await servicosReq.json();
+       this.arrayServicos = servicosResponse;
+  }
+
+  ,methods: {
     testThisValue(){
       console.log('teste')
     },
@@ -71,8 +81,11 @@ const componentPacotes = {data () {
   <div style='background-color: white; 
   display: flex; 
   flex-direction: column; 
-  min-width: 300px;
-  min-height: 450px;'>
+  width: 300px;
+  height: 650px;
+  max-height: 100%;
+  max-width: 100%;
+  '>
            
           <div style='display: flex; flex-direction: row; margin-top: 10px; margin-left: 10px'>
           <label style='margin-right: 10px' for='nomePacote'> Pacote: </label>
@@ -88,14 +101,21 @@ const componentPacotes = {data () {
           </div>
           
           
-          <div style='margin-top: 10px; margin-left: 10px'>
+          <div style='margin-top: 10px; margin-left: 10px; margin-bottom: 10px; max-width: 100%; height: 100px'>
           <h4 style='margin-top: 5px; margin-bottom: 5px;' > Serviços disponíveis: </h4>
-          <input type="checkbox" id='escolherServicos' value='value'>        
-          <label style='margin-right: 5px' for="escolherServicos"> Serviços </label>
+         
+         <div style='display:flex;flex-wrap: wrap;max-width: 100%; max-height: 100%; overflow-x: hidden; overflow-y: scroll;'>
+          
+          <div v-for='n in arrayServicos'>
+            <input type="checkbox" id='escolherServicos' value='value'>        
+            <label style='margin-right: 5px' for="escolherServicos"> {{n.nome_servico}}</label>
+          </div>
+          </div>
+
           </div>
           
 
-          <div style='margin-left: 10px; margin-top: 10px'>
+          <div style='margin-left: 10px; margin-top: 35px'>
             <label style='margin-right: 10px' for="qtdAssentos" > Quantidade de Assentos:</label>
             <input type="number" id="qtdAssentos" min="1" max="100">
           </div>
